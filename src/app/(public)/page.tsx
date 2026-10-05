@@ -3,9 +3,9 @@ import Link from "next/link";
 import { ArchitecturalRule } from "@/components/public/architectural-rule";
 import { Button } from "@/components/public/button";
 import { HeritageAtmosphere } from "@/components/public/heritage-atmosphere";
+import { HeroOpening } from "@/components/public/hero-opening";
 import { Reveal } from "@/components/public/reveal";
 import { SectionHeader } from "@/components/public/section-header";
-import { SiteLogo } from "@/components/public/site-logo";
 import {
   event,
   faqs,
@@ -22,48 +22,7 @@ import {
 export default function Home() {
   return (
     <>
-      <section className="hero">
-        <HeritageAtmosphere asset="hero" className="hero__atmosphere" priority />
-        <div className="hero__frame" aria-hidden="true">
-          <span className="hero__frame-arch" />
-          <span className="hero__frame-line hero__frame-line--top" />
-          <span className="hero__frame-line hero__frame-line--side" />
-        </div>
-
-        <div className="page-shell hero__grid">
-          <div className="hero__copy">
-            <p className="hero__kicker"><span />Code-e-Manipal 2.0 <em>Public site</em></p>
-            <div className="hero__logo">
-              <SiteLogo priority />
-            </div>
-            <h1>Build with a point of view.</h1>
-            <p className="hero__lede">{event.shortDescription}</p>
-            <div className="hero__actions">
-              <Button href={primaryActions.register.href}>Register</Button>
-              <Button href={primaryActions.enter.href} variant="secondary">Enter portal</Button>
-            </div>
-          </div>
-
-          <aside className="hero__signal" aria-label="Event information">
-            <p className="eyebrow"><span aria-hidden="true" />Event signal</p>
-            <div className="hero__signal-orbit" aria-hidden="true"><i /><i /><i /></div>
-            <p className="hero__signal-copy">Official event details will be released through this site.</p>
-            <div className="hero__metadata">
-              {event.metadata.map((item) => (
-                <div key={item.label}>
-                  <span>{item.label}</span>
-                  <strong>{item.value}</strong>
-                </div>
-              ))}
-            </div>
-          </aside>
-        </div>
-
-        <div className="page-shell hero__footer">
-          <p>Jaipur, interpreted through a modern technical lens.</p>
-          <ArchitecturalRule label="Scroll to explore" />
-        </div>
-      </section>
+      <HeroOpening />
 
       <section className="proof-strip" aria-labelledby="proof-title">
         <div className="page-shell">

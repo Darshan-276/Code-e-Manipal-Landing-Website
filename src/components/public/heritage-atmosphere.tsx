@@ -19,7 +19,7 @@ export function HeritageAtmosphere({ asset: assetKey, className = "", priority =
   const src = theme === "dark" ? asset.dark : asset.light;
 
   return (
-    <div aria-hidden="true" className={`heritage-atmosphere ${className}`.trim()}>
+    <div aria-hidden="true" className={`heritage-atmosphere${asset.available ? " heritage-atmosphere--with-image" : ""} ${className}`.trim()}>
       {asset.available && (
         <Image
           alt=""

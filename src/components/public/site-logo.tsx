@@ -4,11 +4,12 @@ import Link from "next/link";
 type SiteLogoProps = {
   compact?: boolean;
   priority?: boolean;
+  className?: string;
 };
 
-export function SiteLogo({ compact = false, priority = false }: SiteLogoProps) {
+export function SiteLogo({ compact = false, priority = false, className = "" }: SiteLogoProps) {
   return (
-    <Link aria-label="Code-e-Manipal home" className={`site-logo${compact ? " site-logo--compact" : ""}`} href="/">
+    <Link aria-label="Code-e-Manipal home" className={`site-logo${compact ? " site-logo--compact" : ""} ${className}`.trim()} href="/">
       <span className="site-logo__crop">
         <Image
           alt="Code-e-Manipal"

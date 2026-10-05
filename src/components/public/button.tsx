@@ -12,7 +12,7 @@ export function Button({ children, href, variant = "primary", className = "", ..
   return (
     <Link className={`button button--${variant} ${className}`.trim()} href={href} {...props}>
       <span>{children}</span>
-      {variant !== "quiet" && <span aria-hidden="true" className="button__arrow">↗</span>}
+      {variant !== "quiet" && <span aria-hidden="true" className="button__arrow" />}
     </Link>
   );
 }
