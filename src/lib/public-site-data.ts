@@ -4,6 +4,7 @@ export type PublicRoute =
   | "/"
   | "/about"
   | "/schedule"
+  | "/tracks"
   | "/problem-statements"
   | "/prizes"
   | "/judges"
@@ -178,77 +179,184 @@ export const event = {
 export const valuePillars: EditorialCard[] = [
   {
     number: "01",
-    eyebrow: "Make",
-    title: "Bring a useful idea into focus.",
+    eyebrow: "Build",
+    title: "Give a useful idea somewhere to begin.",
     description:
-      "A stage for teams who want to turn a sharp question into a considered prototype.",
+      "A focused prompt, a shared room, and the discipline to turn a sharp question into a considered prototype.",
   },
   {
     number: "02",
-    eyebrow: "Meet",
-    title: "Find people who push the work forward.",
+    eyebrow: "Break",
+    title: "Question the obvious with intent.",
     description:
-      "A shared environment for students, builders, and perspectives that deserve to cross paths.",
+      "Problem-solving begins by testing the first answer, then making space for better ones to surface.",
   },
   {
     number: "03",
-    eyebrow: "Show",
-    title: "Give your thinking a public edge.",
+    eyebrow: "Become",
+    title: "Let the work change what comes next.",
     description:
-      "Use the event as a moment to communicate intent, craft, and the courage to make a case.",
+      "Recognition, collaboration, networking, mentorship, and real-world impact will take their confirmed shape in the official programme.",
   },
 ];
 
 export const trackPreview: EditorialCard[] = [
   {
-    number: "A",
-    eyebrow: "Challenge set",
-    title: "Problem statements",
-    description: "Official tracks and challenge details will be released here.",
-    href: "/problem-statements",
-    status: TBA,
-  },
-  {
-    number: "B",
-    eyebrow: "Challenge set",
-    title: "Open questions",
-    description: "The complete set of build opportunities will be published with event guidance.",
-    href: "/problem-statements",
-    status: TBA,
-  },
-  {
-    number: "C",
-    eyebrow: "Challenge set",
-    title: "Ways to contribute",
-    description: "Participation requirements and submission criteria will be published officially.",
-    href: "/problem-statements",
-    status: TBA,
-  },
-];
-
-export const schedulePreview: EditorialCard[] = [
-  {
     number: "01",
-    eyebrow: "Phase",
-    title: "Schedule release",
-    description: "The complete event journey, timings, and locations will be announced here.",
-    href: "/schedule",
+    eyebrow: "Official track",
+    title: "Category 01",
+    description: "The official category, brief, and participation guidance are " + TBA.toLowerCase() + ".",
+    href: "/tracks",
     status: TBA,
   },
   {
     number: "02",
-    eyebrow: "Phase",
-    title: "Build moments",
-    description: "Official milestones and on-ground experiences will appear in the event schedule.",
-    href: "/schedule",
+    eyebrow: "Official track",
+    title: "Category 02",
+    description: "The official category, brief, and participation guidance are " + TBA.toLowerCase() + ".",
+    href: "/tracks",
     status: TBA,
   },
   {
     number: "03",
-    eyebrow: "Phase",
-    title: "Showcase",
-    description: "Presentation, evaluation, and closing information will be confirmed by organizers.",
-    href: "/schedule",
+    eyebrow: "Official track",
+    title: "Category 03",
+    description: "The official category, brief, and participation guidance are " + TBA.toLowerCase() + ".",
+    href: "/tracks",
+    status: TBA,
+  },
+  {
+    number: "04",
+    eyebrow: "Official track",
+    title: "Category 04",
+    description: "The official category, brief, and participation guidance are " + TBA.toLowerCase() + ".",
+    href: "/tracks",
+    status: TBA,
+  },
+];
+
+export const competitionJourney: EditorialCard[] = [
+  {
+    number: "01",
+    eyebrow: "Journey signal",
+    title: "Registration",
+    description: "Registration timing and requirements are " + TBA.toLowerCase() + ".",
+    status: TBA,
+  },
+  {
+    number: "02",
+    eyebrow: "Journey signal",
+    title: "Qualifier",
+    description: "The confirmed qualification format is " + TBA.toLowerCase() + ".",
+    status: TBA,
+  },
+  {
+    number: "03",
+    eyebrow: "Journey signal",
+    title: "Shortlist",
+    description: "Shortlisting criteria and communication are " + TBA.toLowerCase() + ".",
+    status: TBA,
+  },
+  {
+    number: "04",
+    eyebrow: "Journey signal",
+    title: "Hack",
+    description: "The confirmed build format and timing are " + TBA.toLowerCase() + ".",
+    status: TBA,
+  },
+  {
+    number: "05",
+    eyebrow: "Journey signal",
+    title: "Mentoring",
+    description: "Mentoring details, if confirmed, will be announced here.",
+    status: TBA,
+  },
+  {
+    number: "06",
+    eyebrow: "Journey signal",
+    title: "Demo",
+    description: "Demo format and submission expectations are " + TBA.toLowerCase() + ".",
+    status: TBA,
+  },
+  {
+    number: "07",
+    eyebrow: "Journey signal",
+    title: "Jury",
+    description: "The official evaluation structure is " + TBA.toLowerCase() + ".",
+    status: TBA,
+  },
+  {
+    number: "08",
+    eyebrow: "Journey signal",
+    title: "Results",
+    description: "The official announcement process is " + TBA.toLowerCase() + ".",
+    status: TBA,
+  },
+];
+
+export type SchedulePreview = {
+  number: string;
+  day: string;
+  time: string;
+  event: string;
+  description: string;
+  location: string;
+  stage: string;
+};
+
+export const schedulePreview: SchedulePreview[] = [
+  {
+    number: "01",
+    day: TBA,
+    time: TBA,
+    event: "Programme item 01",
+    description: "Official date, time, description, location, and stage information are pending confirmation.",
+    location: TBA,
+    stage: TBA,
+  },
+  {
+    number: "02",
+    day: TBA,
+    time: TBA,
+    event: "Programme item 02",
+    description: "Official date, time, description, location, and stage information are pending confirmation.",
+    location: TBA,
+    stage: TBA,
+  },
+  {
+    number: "03",
+    day: TBA,
+    time: TBA,
+    event: "Programme item 03",
+    description: "Official date, time, description, location, and stage information are pending confirmation.",
+    location: TBA,
+    stage: TBA,
+  },
+];
+
+export const prizeTiers: EditorialCard[] = [
+  {
+    number: "01",
+    eyebrow: "Recognition tier",
+    title: "Award tier 01",
+    description: "Confirmed award category, benefits, and any prize value are " + TBA.toLowerCase() + ".",
+    href: "/prizes",
+    status: TBA,
+  },
+  {
+    number: "02",
+    eyebrow: "Recognition tier",
+    title: "Award tier 02",
+    description: "Confirmed award category, benefits, and any prize value are " + TBA.toLowerCase() + ".",
+    href: "/prizes",
+    status: TBA,
+  },
+  {
+    number: "03",
+    eyebrow: "Recognition tier",
+    title: "Award tier 03",
+    description: "Confirmed award category, benefits, and any prize value are " + TBA.toLowerCase() + ".",
+    href: "/prizes",
     status: TBA,
   },
 ];
@@ -326,6 +434,11 @@ export const routeContent: Record<Exclude<PublicRoute, "/">, EditorialCard> = {
     eyebrow: "Event journey",
     title: "The schedule will arrive with the details that matter.",
     description: "Dates, timings, phases, locations, and live event status are " + TBA.toLowerCase() + ".",
+  },
+  "/tracks": {
+    eyebrow: "Challenge discovery",
+    title: "The official challenge categories are on their way.",
+    description: "Official tracks, statements, constraints, and submission guidance are " + TBA.toLowerCase() + ".",
   },
   "/problem-statements": {
     eyebrow: "Challenge discovery",

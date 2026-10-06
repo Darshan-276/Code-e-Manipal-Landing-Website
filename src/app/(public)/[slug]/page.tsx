@@ -13,6 +13,7 @@ type PublicPageProps = {
 const assetForRoute = {
   about: "about",
   schedule: "schedule",
+  tracks: "problemStatements",
   "problem-statements": "problemStatements",
   prizes: "prizes",
   judges: "judges",

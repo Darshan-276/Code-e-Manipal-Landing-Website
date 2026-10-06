@@ -1,21 +1,16 @@
-import Link from "next/link";
-
 import { ArchitecturalRule } from "@/components/public/architectural-rule";
 import { Button } from "@/components/public/button";
 import { HeritageAtmosphere } from "@/components/public/heritage-atmosphere";
 import { HeroOpening } from "@/components/public/hero-opening";
+import { JourneyRail } from "@/components/public/journey-rail";
+import { PrizePodium } from "@/components/public/prize-podium";
 import { Reveal } from "@/components/public/reveal";
 import { SectionHeader } from "@/components/public/section-header";
+import { TrackExplorer } from "@/components/public/track-explorer";
 import {
   event,
-  faqs,
-  gallery,
-  people,
   primaryActions,
-  prizes,
   schedulePreview,
-  sponsors,
-  trackPreview,
   valuePillars,
 } from "@/lib/public-site-data";
 
@@ -28,7 +23,7 @@ export default function Home() {
         <div className="page-shell">
           <div className="proof-strip__intro">
             <p className="eyebrow"><span aria-hidden="true" />Event proof</p>
-            <h2 id="proof-title">The facts will be here when they are real.</h2>
+            <h2 id="proof-title">The public record starts with what can be verified.</h2>
           </div>
           <div className="proof-strip__metrics">
             {event.proof.map((item, index) => (
@@ -43,77 +38,27 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section why-section" id="about">
-        <div className="page-shell">
-          <Reveal>
-            <SectionHeader
-              eyebrow="Why Code-e-Manipal"
-              title="Enough structure to focus. Enough room to make it yours."
-              description="A public foundation designed to put the work, the people, and the next meaningful question at the center."
-            />
+      <section className="section why-section" id="about" aria-labelledby="why-title">
+        <div className="page-shell why-manifesto">
+          <Reveal className="why-manifesto__lead">
+            <p className="eyebrow"><span aria-hidden="true" />Why Code-e-Manipal</p>
+            <h2 id="why-title">BUILD.<br />BREAK.<br /><em>BECOME.</em></h2>
+            <p>
+              A competitive journey can give good ideas the tension, perspective, and room they need to become real.
+            </p>
           </Reveal>
-          <div className="pillar-grid">
+
+          <div className="why-manifesto__story" aria-label="Why the experience matters">
             {valuePillars.map((pillar, index) => (
-              <Reveal delay={index * 90} key={pillar.number}>
-                <article className="pillar-card">
-                  <span className="pillar-card__number">{pillar.number}</span>
-                  <p className="eyebrow"><span aria-hidden="true" />{pillar.eyebrow}</p>
-                  <h3>{pillar.title}</h3>
-                  <p>{pillar.description}</p>
-                  <span className="pillar-card__arch" aria-hidden="true" />
-                </article>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="section tracks-section" id="problem-statements">
-        <div className="page-shell tracks-section__topline">
-          <SectionHeader
-            eyebrow="Problem statements"
-            title="Start with a question worth staying up for."
-            description="Official tracks will land here with enough context to help teams choose a direction with confidence."
-          />
-          <Button href="/problem-statements" variant="quiet">Explore challenges</Button>
-        </div>
-        <div className="page-shell track-grid">
-          {trackPreview.map((track, index) => (
-            <Reveal delay={index * 85} key={track.number}>
-              <Link className="track-card" href={track.href || "/problem-statements"}>
-                <span className="track-card__marker">{track.number}</span>
-                <span className="track-card__index">{track.eyebrow}</span>
-                <h3>{track.title}</h3>
-                <p>{track.description}</p>
-                <span className="track-card__meta">{track.status}<b>↗</b></span>
-              </Link>
-            </Reveal>
-          ))}
-        </div>
-      </section>
-
-      <section className="section timeline-section" id="schedule">
-        <div className="page-shell timeline-section__grid">
-          <div className="timeline-section__sticky">
-            <SectionHeader
-              eyebrow="Event journey"
-              title="A clear route from first signal to final showcase."
-              description="The official timetable will turn this architecture into a practical, participant-ready journey."
-            />
-            <Button href="/schedule" variant="secondary">View schedule</Button>
-          </div>
-          <div className="timeline-list">
-            {schedulePreview.map((phase, index) => (
-              <Reveal delay={index * 100} key={phase.number}>
-                <article className="timeline-item">
-                  <span className="timeline-item__dot" aria-hidden="true" />
-                  <span className="timeline-item__number">{phase.number}</span>
+              <Reveal delay={index * 100} key={pillar.number}>
+                <article className="why-story-step">
+                  <span>{pillar.number}</span>
                   <div>
-                    <p className="eyebrow"><span aria-hidden="true" />{phase.eyebrow}</p>
-                    <h3>{phase.title}</h3>
-                    <p>{phase.description}</p>
+                    <p>{pillar.eyebrow}</p>
+                    <h3>{pillar.title}</h3>
+                    <p>{pillar.description}</p>
                   </div>
-                  <strong>{phase.status}</strong>
+                  <i aria-hidden="true" />
                 </article>
               </Reveal>
             ))}
@@ -121,125 +66,106 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section awards-section" id="prizes">
-        <div className="page-shell award-frame">
-          <div className="award-frame__ornament" aria-hidden="true"><span /><span /><span /></div>
+      <section className="section tracks-section" id="tracks" aria-labelledby="tracks-title">
+        <div className="page-shell tracks-section__topline">
           <Reveal>
             <SectionHeader
-              alignment="center"
-              eyebrow="Recognition"
-              title="A considered reward for considered work."
-              description={prizes[0].description}
+              eyebrow="Challenge tracks"
+              title="Find the problem that deserves your best thinking."
+              description="The official categories will appear as soon as they are confirmed. Until then, this selector keeps the challenge map ready without making up the brief."
             />
           </Reveal>
-          <Reveal delay={100}>
-            <div className="award-frame__status">
-              <span>Official awards</span>
-              <strong>{prizes[0].status}</strong>
-              <Button href="/prizes" variant="secondary">View prizes</Button>
-            </div>
-          </Reveal>
+          <Button href="/tracks" variant="quiet">Explore tracks</Button>
         </div>
+        <Reveal className="page-shell" delay={90}>
+          <TrackExplorer />
+        </Reveal>
       </section>
 
-      <section className="section people-section" id="judges">
-        <div className="page-shell people-section__header">
-          <SectionHeader
-            eyebrow="People behind the room"
-            title="Perspectives that make the moment count."
-            description="Judges, mentors, and organizing partners will be introduced here when their participation is confirmed."
-          />
-          <Button href="/judges" variant="quiet">Meet the people</Button>
-        </div>
-        <div className="page-shell profile-stage">
-          <Reveal>
-            <article className="profile-stage__card profile-stage__card--primary">
-              <div className="profile-stage__portrait" aria-hidden="true"><span /></div>
-              <p className="eyebrow"><span aria-hidden="true" />{people[0].eyebrow}</p>
-              <h3>{people[0].title}</h3>
-              <p>{people[0].description}</p>
-              <strong>{people[0].status}</strong>
-            </article>
-          </Reveal>
-          <div className="profile-stage__lines" aria-hidden="true"><span /><span /><span /></div>
-          <div className="profile-stage__note">
-            <span>01</span>
-            <p>Professional profiles will be published when the panel is officially confirmed.</p>
-          </div>
-        </div>
-      </section>
-
-      <section className="section partners-section" id="sponsors">
-        <div className="page-shell partners-section__head">
-          <SectionHeader
-            eyebrow="Partners"
-            title="Good work needs a thoughtful support system."
-            description={sponsors[0].description}
-          />
-          <Button href="/sponsors" variant="quiet">Partner with us</Button>
-        </div>
-        <div className="page-shell partner-wall">
-          {["01", "02", "03", "04", "05", "06"].map((item, index) => (
-            <Reveal delay={index * 45} key={item}>
-              <div className="partner-slot">
-                <span>{item}</span>
-                <strong>{sponsors[0].status}</strong>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </section>
-
-      <section className="section gallery-section" id="gallery">
-        <div className="page-shell gallery-section__grid">
-          <div>
+      <section className="section journey-section" id="journey" aria-labelledby="journey-title">
+        <div className="page-shell journey-section__grid">
+          <Reveal className="journey-section__intro">
             <SectionHeader
-              eyebrow="Gallery"
-              title="When the work begins, the archive follows."
-              description={gallery[0].description}
+              eyebrow="How it works"
+              title="A journey with more than one kind of finish line."
+              description="This is the proposed experience architecture. The confirmed sequence, eligibility, and timings will be published by the organizers."
             />
-            <Button href="/gallery" variant="secondary">Open gallery</Button>
-          </div>
-          <div className="gallery-frames" aria-label="Gallery preview">
-            <Reveal className="gallery-frame gallery-frame--tall"><span>01</span><em>Official frames</em></Reveal>
-            <Reveal className="gallery-frame gallery-frame--wide" delay={90}><span>02</span><em>To be announced</em></Reveal>
-            <Reveal className="gallery-frame gallery-frame--square" delay={160}><span>03</span><em>Archive</em></Reveal>
-          </div>
+            <ArchitecturalRule label="Journey status: to be announced" />
+          </Reveal>
+          <JourneyRail />
         </div>
       </section>
 
-      <section className="section faq-section" id="faq">
-        <div className="page-shell faq-section__grid">
-          <SectionHeader
-            eyebrow="FAQ"
-            title="Clear answers, without the runaround."
-            description="The answers below are intentionally limited to official-information status until organizers confirm the details."
-          />
-          <div className="faq-list">
-            {faqs.map((faq, index) => (
-              <Reveal delay={index * 45} key={faq.question}>
-                <details>
-                  <summary><span>0{index + 1}</span>{faq.question}<b aria-hidden="true">+</b></summary>
-                  <p>{faq.answer}</p>
-                </details>
-              </Reveal>
-            ))}
-            <Link className="faq-list__link" href="/faq">Visit the FAQ page <span aria-hidden="true">↗</span></Link>
-          </div>
+      <section className="section schedule-preview-section" id="schedule" aria-labelledby="schedule-title">
+        <div className="page-shell schedule-preview-section__head">
+          <Reveal>
+            <SectionHeader
+              eyebrow="Schedule preview"
+              title="When the plan locks, every useful detail lands here."
+              description="Dates, times, events, descriptions, locations, and stages stay deliberately unclaimed until they are official."
+            />
+          </Reveal>
+          <Button href="/schedule" variant="secondary">View full schedule</Button>
         </div>
+
+        <Reveal className="page-shell" delay={80}>
+          <div className="schedule-table-wrap">
+            <table className="schedule-table">
+              <caption className="sr-only">Official schedule preview</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Date</th>
+                  <th scope="col">Time</th>
+                  <th scope="col">Event</th>
+                  <th scope="col">Description</th>
+                  <th scope="col">Location</th>
+                  <th scope="col">Stage</th>
+                </tr>
+              </thead>
+              <tbody>
+                {schedulePreview.map((item) => (
+                  <tr key={item.number}>
+                    <td data-label="Date">{item.day}</td>
+                    <td data-label="Time">{item.time}</td>
+                    <th data-label="Event" scope="row">{item.event}</th>
+                    <td data-label="Description">{item.description}</td>
+                    <td data-label="Location">{item.location}</td>
+                    <td data-label="Stage"><span>{item.stage}</span></td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </Reveal>
       </section>
 
-      <section className="final-cta">
+      <section className="section prizes-section" id="prizes" aria-labelledby="prizes-title">
+        <div className="page-shell prizes-section__head">
+          <Reveal>
+            <SectionHeader
+              eyebrow="Prize experience"
+              title="Recognition should feel like a moment, not a footnote."
+              description="The award architecture is ready for its confirmed names, benefits, and prize values. None are published here before the official release."
+            />
+          </Reveal>
+          <Button href="/prizes" variant="quiet">View all prizes</Button>
+        </div>
+        <Reveal className="page-shell" delay={90}>
+          <PrizePodium />
+        </Reveal>
+      </section>
+
+      <section className="final-cta" aria-labelledby="final-cta-title">
         <HeritageAtmosphere asset="register" className="final-cta__atmosphere" />
         <div className="page-shell final-cta__content">
           <p className="eyebrow"><span aria-hidden="true" />Code-e-Manipal 2.0</p>
-          <h2>Be ready when it is time to make your move.</h2>
-          <p>Registration and portal guidance will be published through the official site.</p>
+          <h2 id="final-cta-title">Ready to build what comes next?</h2>
+          <p>Registration guidance and the official challenge release will be published through this site.</p>
           <div className="final-cta__actions">
             <Button href={primaryActions.register.href}>Register now</Button>
-            <Button href={primaryActions.enter.href} variant="secondary">Enter portal</Button>
+            <Button href="/tracks" variant="secondary">Explore the challenge</Button>
           </div>
-          <ArchitecturalRule label="End of signal" />
+          <ArchitecturalRule label="The next signal is yours" />
         </div>
       </section>
     </>
