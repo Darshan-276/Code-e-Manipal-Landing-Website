@@ -47,6 +47,19 @@ export type EditorialCard = {
   status?: string;
 };
 
+export type SponsorProfile = {
+  name: string;
+  image: string;
+  alt: string;
+};
+
+export type JudgeProfile = {
+  name: string;
+  role: string;
+  organization?: string;
+  image: string;
+};
+
 export const publicNavigation: NavigationItem[] = [
   { label: "Home", href: "/", description: "Opening frame" },
   { label: "About", href: "/about", description: "The Code-e-Manipal story" },
@@ -381,15 +394,18 @@ export const people: EditorialCard[] = [
   },
 ];
 
-export const sponsors: EditorialCard[] = [
-  {
-    eyebrow: "Partners",
-    title: "Partners and supporters",
-    description: "Approved partner information will appear once confirmed.",
-    href: "/sponsors",
-    status: TBA,
-  },
+export const sponsorProfiles: SponsorProfile[] = [
+  { name: "e-cell", image: "/images/Sponsors/e-cell-cropped.png", alt: "e-cell logo" },
+  { name: "The Hosteller", image: "/images/Sponsors/the-hosteller-cropped.png", alt: "The Hosteller logo" },
+  { name: "HackerRank", image: "/images/Sponsors/hackerrank-cropped.png", alt: "HackerRank logo" },
+  { name: "VickyBytes", image: "/images/Sponsors/vickybytes-cropped.png", alt: "VickyBytes logo" },
+  { name: "Unstop", image: "/images/Sponsors/unstop-cropped.png", alt: "Unstop logo" },
 ];
+
+// No judge names, roles, organisations, or photographs are published in the supplied
+// official materials yet. Keeping this typed roster empty prevents placeholder people
+// from being presented as confirmed participants.
+export const judgeProfiles: JudgeProfile[] = [];
 
 export const gallery: EditorialCard[] = [
   {

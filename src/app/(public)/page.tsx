@@ -2,6 +2,7 @@ import { ArchitecturalRule } from "@/components/public/architectural-rule";
 import { Button } from "@/components/public/button";
 import { HeritageAtmosphere } from "@/components/public/heritage-atmosphere";
 import { HeroOpening } from "@/components/public/hero-opening";
+import { EventMarquee } from "@/components/public/event-marquee";
 import { JourneyRail } from "@/components/public/journey-rail";
 import { PrizePodium } from "@/components/public/prize-podium";
 import { Reveal } from "@/components/public/reveal";
@@ -37,6 +38,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <EventMarquee />
 
       <section className="section why-section" id="about" aria-labelledby="why-title">
         <div className="page-shell why-manifesto">

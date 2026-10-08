@@ -3,7 +3,9 @@ import { notFound } from "next/navigation";
 
 import { Button } from "@/components/public/button";
 import { HeritageAtmosphere } from "@/components/public/heritage-atmosphere";
+import { JudgeGrid } from "@/components/public/judge-grid";
 import { SectionHeader } from "@/components/public/section-header";
+import { SponsorCloud } from "@/components/public/sponsor-cloud";
 import { primaryActions, publicRoutes, routeContent, type PublicRoute } from "@/lib/public-site-data";
 
 type PublicPageProps = {
@@ -55,7 +57,7 @@ export default function PublicDetailPage({ params }: PublicPageProps) {
 
   return (
     <>
-      <section className="page-intro">
+      <section className={`page-intro${params.slug === "sponsors" ? " page-intro--sponsors" : ""}`}>
         <HeritageAtmosphere asset={asset} />
         <div className="page-shell page-intro__content">
           <p className="eyebrow"><span aria-hidden="true" />{content.eyebrow}</p>
@@ -68,18 +70,24 @@ export default function PublicDetailPage({ params }: PublicPageProps) {
         </div>
       </section>
 
-      <section className="section section--tight">
+      <section className={`section section--tight${params.slug === "sponsors" ? " sponsors-section" : ""}`}>
         <div className="page-shell content-placeholder">
-          <SectionHeader
-            eyebrow="Official update"
-            title="This section is ready for confirmed event information."
-            description="The content model and visual foundation are in place; only authoritative event details will be published here."
-          />
-          <div className="content-placeholder__frame">
-            <span className="content-placeholder__corner content-placeholder__corner--one" />
-            <span className="content-placeholder__corner content-placeholder__corner--two" />
-            <p>To be announced</p>
-          </div>
+          {params.slug === "sponsors" ? (
+            <>
+              <SectionHeader eyebrow="Approved partners" title="Made possible with our partners." description="A considered collection of supporters behind Code-e-Manipal 2.0." />
+              <SponsorCloud />
+            </>
+          ) : params.slug === "judges" ? (
+            <>
+              <SectionHeader eyebrow="Jury" title="A considered panel, announced in full soon." description="Judge names, roles, organisations, and photography will appear only after official confirmation." />
+              <JudgeGrid />
+            </>
+          ) : (
+            <>
+              <SectionHeader eyebrow="Official update" title="This section is ready for confirmed event information." description="The content model and visual foundation are in place; only authoritative event details will be published here." />
+              <div className="content-placeholder__frame"><span className="content-placeholder__corner content-placeholder__corner--one" /><span className="content-placeholder__corner content-placeholder__corner--two" /><p>To be announced</p></div>
+            </>
+          )}
         </div>
       </section>
     </>
