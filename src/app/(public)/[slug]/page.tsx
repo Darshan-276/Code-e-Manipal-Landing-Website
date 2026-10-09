@@ -9,6 +9,7 @@ import { SponsorCloud } from "@/components/public/sponsor-cloud";
 import { AboutEditorial } from "@/components/public/about-editorial";
 import { OfficialPrizes } from "@/components/public/official-prizes";
 import { OfficialTimeline } from "@/components/public/official-timeline";
+import { FaqSection } from "@/components/public/faq-section";
 import { primaryActions, publicRoutes, routeContent, type PublicRoute } from "@/lib/public-site-data";
 
 type PublicPageProps = {
@@ -74,7 +75,7 @@ export default function PublicDetailPage({ params }: PublicPageProps) {
 
       <section className={`section section--tight${params.slug === "sponsors" ? " sponsors-section" : ""}`}>
         <div className="page-shell content-placeholder">
-          {params.slug === "about" ? <AboutEditorial /> : params.slug === "prizes" ? <OfficialPrizes /> : params.slug === "timeline" ? <OfficialTimeline /> : params.slug === "sponsors" ? (
+          {params.slug === "about" ? <AboutEditorial /> : params.slug === "prizes" ? <OfficialPrizes /> : params.slug === "timeline" ? <OfficialTimeline /> : params.slug === "faq" ? <FaqSection /> : params.slug === "sponsors" ? (
             <>
               <SectionHeader eyebrow="Approved partners" title="Made possible with our partners." description="A considered collection of supporters behind Code-e-Manipal 2.0." />
               <SponsorCloud />
