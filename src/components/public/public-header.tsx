@@ -53,8 +53,7 @@ export function PublicHeader() {
 
         <div className="public-header__actions">
           <ThemeToggle />
-          <Button href={primaryActions.enter.href} variant="secondary">Enter</Button>
-          <Button href={primaryActions.register.href}>Register</Button>
+          <Button href={primaryActions.enter.href}>Enter Console</Button>
         </div>
 
         <div className="public-header__mobile-actions">
@@ -83,8 +82,7 @@ export function PublicHeader() {
             </Link>
           ))}
           <div className="mobile-menu__actions">
-            <Button href={primaryActions.register.href}>Register</Button>
-            <Button href={primaryActions.enter.href} variant="secondary">Enter portal</Button>
+            <Button href={primaryActions.enter.href}>Enter Console</Button>
           </div>
         </nav>
       </div>

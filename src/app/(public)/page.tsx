@@ -99,16 +99,16 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section schedule-preview-section" id="schedule" aria-labelledby="schedule-title">
+      <section className="section schedule-preview-section" id="timeline" aria-labelledby="timeline-title">
         <div className="page-shell schedule-preview-section__head">
           <Reveal>
             <SectionHeader
-              eyebrow="Schedule preview"
-              title="When the plan locks, every useful detail lands here."
-              description="Dates, times, events, descriptions, locations, and stages stay deliberately unclaimed until they are official."
+              eyebrow="Timeline preview"
+              title="A 36-hour journey, from qualifier to final demo."
+              description="The complete event progression, including check-in, hacking, mentorship, code freeze, and jury evaluation, is now available on the public timeline."
             />
           </Reveal>
-          <Button href="/schedule" variant="secondary">View full schedule</Button>
+          <Button href="/timeline" variant="secondary">View full timeline</Button>
         </div>
 
         <Reveal className="page-shell" delay={80}>
@@ -165,8 +165,7 @@ export default function Home() {
           <h2 id="final-cta-title">Ready to build what comes next?</h2>
           <p>Registration guidance and the official challenge release will be published through this site.</p>
           <div className="final-cta__actions">
-            <Button href={primaryActions.register.href}>Register now</Button>
-            <Button href="/tracks" variant="secondary">Explore the challenge</Button>
+            <Button href={primaryActions.enter.href}>Enter Console</Button>
           </div>
           <ArchitecturalRule label="The next signal is yours" />
         </div>

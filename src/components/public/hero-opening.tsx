@@ -37,8 +37,7 @@ export function HeroOpening() {
           <h1 className="hero__headline hero__reveal hero__reveal--three">Make the next thing matter.</h1>
           <p className="hero__lede hero__reveal hero__reveal--four">{event.shortDescription}</p>
           <div className="hero__actions hero__reveal hero__reveal--five">
-            <Button href={primaryActions.register.href}>Register now</Button>
-            <Button href={primaryActions.enter.href} variant="secondary">Enter portal</Button>
+            <Button href={primaryActions.enter.href}>Enter Console</Button>
           </div>
         </div>
 

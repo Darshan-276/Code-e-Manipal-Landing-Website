@@ -13,8 +13,7 @@ export function PublicFooter() {
           <SiteLogo />
           <p>Modern thinking, crafted with Jaipur in the frame.</p>
           <div className="public-footer__actions">
-            <Button href={primaryActions.register.href}>Register</Button>
-            <Button href={primaryActions.enter.href} variant="secondary">Enter portal</Button>
+            <Button href={primaryActions.enter.href}>Enter Console</Button>
           </div>
         </div>
 

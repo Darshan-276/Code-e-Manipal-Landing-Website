@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 
 import { Button } from "@/components/public/button";
 import { HeritageAtmosphere } from "@/components/public/heritage-atmosphere";
 import { JudgeGrid } from "@/components/public/judge-grid";
 import { SectionHeader } from "@/components/public/section-header";
 import { SponsorCloud } from "@/components/public/sponsor-cloud";
+import { AboutEditorial } from "@/components/public/about-editorial";
+import { OfficialPrizes } from "@/components/public/official-prizes";
+import { OfficialTimeline } from "@/components/public/official-timeline";
 import { primaryActions, publicRoutes, routeContent, type PublicRoute } from "@/lib/public-site-data";
 
 type PublicPageProps = {
@@ -15,6 +18,7 @@ type PublicPageProps = {
 const assetForRoute = {
   about: "about",
   schedule: "schedule",
+  timeline: "schedule",
   tracks: "problemStatements",
   "problem-statements": "problemStatements",
   prizes: "prizes",
@@ -51,6 +55,7 @@ export function generateMetadata({ params }: PublicPageProps): Metadata {
 export default function PublicDetailPage({ params }: PublicPageProps) {
   const route = resolveRoute(params.slug);
   if (!route) notFound();
+  if (params.slug === "schedule") redirect("/timeline");
 
   const content = routeContent[route];
   const asset = assetForRoute[params.slug as keyof typeof assetForRoute];
@@ -63,16 +68,13 @@ export default function PublicDetailPage({ params }: PublicPageProps) {
           <p className="eyebrow"><span aria-hidden="true" />{content.eyebrow}</p>
           <h1>{content.title}</h1>
           <p>{content.description}</p>
-          <div className="page-intro__actions">
-            <Button href={primaryActions.register.href}>Register</Button>
-            <Button href={primaryActions.enter.href} variant="secondary">Enter portal</Button>
-          </div>
+          <div className="page-intro__actions"><Button href={primaryActions.enter.href}>Enter Console</Button></div>
         </div>
       </section>
 
       <section className={`section section--tight${params.slug === "sponsors" ? " sponsors-section" : ""}`}>
         <div className="page-shell content-placeholder">
-          {params.slug === "sponsors" ? (
+          {params.slug === "about" ? <AboutEditorial /> : params.slug === "prizes" ? <OfficialPrizes /> : params.slug === "timeline" ? <OfficialTimeline /> : params.slug === "sponsors" ? (
             <>
               <SectionHeader eyebrow="Approved partners" title="Made possible with our partners." description="A considered collection of supporters behind Code-e-Manipal 2.0." />
               <SponsorCloud />

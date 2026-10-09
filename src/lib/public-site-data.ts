@@ -4,6 +4,7 @@ export type PublicRoute =
   | "/"
   | "/about"
   | "/schedule"
+  | "/timeline"
   | "/tracks"
   | "/problem-statements"
   | "/prizes"
@@ -60,10 +61,13 @@ export type JudgeProfile = {
   image: string;
 };
 
+export type TimelineItem = { time: string; title: string; description: string; place: string; state: "Completed" | "Current" | "Upcoming" | "Locked" };
+export type TimelineStage = { number: string; title: string; subtitle: string; date: string; items: TimelineItem[] };
+
 export const publicNavigation: NavigationItem[] = [
   { label: "Home", href: "/", description: "Opening frame" },
   { label: "About", href: "/about", description: "The Code-e-Manipal story" },
-  { label: "Schedule", href: "/schedule", description: "Event journey" },
+  { label: "Timeline", href: "/timeline", description: "Event journey" },
   {
     label: "Problem Statements",
     href: "/problem-statements",
@@ -77,8 +81,7 @@ export const publicNavigation: NavigationItem[] = [
 ];
 
 export const primaryActions = {
-  register: { label: "Register", href: "/register" as PublicRoute },
-  enter: { label: "Enter portal", href: "/enter" as PublicRoute },
+  enter: { label: "Enter Console", href: "/enter" as PublicRoute },
 };
 
 export const heritageImages = {
@@ -173,19 +176,19 @@ export const event = {
   brandLabel: "Code-e-Manipal",
   edition: "2.0",
   shortDescription:
-    "A modern space for ambitious ideas, thoughtful technology, and the people ready to build what matters.",
+    "The second edition of LearnIT's flagship hackathon at Manipal University Jaipur.",
   longDescription:
     "Code-e-Manipal brings a precise, people-first approach to the hackathon experience. The public site will publish official event information as it is confirmed.",
   metadata: [
-    { label: "When", value: TBA },
-    { label: "Where", value: TBA },
-    { label: "Format", value: TBA },
+    { label: "When", value: "15–16 October 2026" },
+    { label: "Where", value: "Manipal University Jaipur" },
+    { label: "Format", value: "Offline hackathon" },
   ] satisfies EventDatum[],
   proof: [
-    { label: "Duration", value: TBA },
-    { label: "Prize pool", value: TBA },
-    { label: "Location", value: TBA },
-    { label: "Registrations", value: TBA },
+    { label: "Duration", value: "36 hours" },
+    { label: "Prize pool", value: "₹3,50,000+" },
+    { label: "Location", value: "MUJ" },
+    { label: "Team size", value: "1–6 members" },
   ] satisfies EventDatum[],
 };
 
@@ -211,6 +214,48 @@ export const valuePillars: EditorialCard[] = [
     description:
       "Recognition, collaboration, networking, mentorship, and real-world impact will take their confirmed shape in the official programme.",
   },
+];
+
+export const aboutHighlights = [
+  "Offline coding challenge at Manipal University Jaipur",
+  "Open to university and college students nationally and internationally",
+  "Interdisciplinary and inter-college teams of 1–6 members",
+];
+
+export const officialTracks = ["AI/ML", "HealthTech", "FinTech / EdTech", "Cybersecurity", "Generative AI & LLMs", "Multi-Agent Systems", "Gaming & Immersive Tech", "Smart City and Infrastructure", "Open Innovation"];
+
+export const officialPrizes = [
+  { title: "Winner", amount: "₹50,000", detail: "Cash Prize", kind: "winner" },
+  { title: "First Runner Up", amount: "₹30,000", detail: "Cash Prize", kind: "runner" },
+  { title: "Second Runner Up", amount: "₹20,000", detail: "Cash Prize", kind: "runner" },
+  { title: "Top 10 Teams", amount: "₹5,000+", detail: "In-kind rewards + exclusive perks", kind: "support" },
+  { title: "Additional benefits", amount: "₹3,00,000", detail: "Exclusive perks, rewards, coupons and other benefits", kind: "support" },
+] as const;
+
+export const timelineStages: TimelineStage[] = [
+  { number: "01", title: "Online Phase", subtitle: "Pre-Event Onboarding", date: "27 Sep – 11 Oct 2026", items: [
+    { time: "11 Oct 2026", title: "Round 1: Online Assessment (MCQ on Unstop)", description: "10-question online qualifier covering Programming Fundamentals, Logical Reasoning, Computer Science Fundamentals, and Problem Solving / Output Prediction (10 mins, 10 marks, no negative marking).", place: "Unstop Platform", state: "Completed" },
+    { time: "Prior to Finale", title: "National Shortlist Announcement", description: "Announcement of qualifying teams selected for Round 2 Offline Finale at Manipal University Jaipur.", place: "Unstop & Official Portal", state: "Completed" },
+    { time: "Oct 14, 06:00 PM", title: "Portal Provisioning & Workspace Activation", description: "Shortlisted Team Leaders receive credentials, verify rosters (1–6 members), and access the Code-e-Manipal 2.0 workspace.", place: "Online Portal", state: "Completed" },
+    { time: "", title: "Pre-Hack Briefing & System Verification", description: "Briefing on hackathon rules, submission guidelines, evaluation criteria, and workspace readiness.", place: "Online / Discord", state: "Completed" },
+  ] },
+  { number: "02", title: "15 October — Day 1", subtitle: "Reporting & Hacking Launch", date: "", items: [
+    { time: "08:30 AM – 09:30 AM", title: "Participant Reporting & Physical Verification", description: "Physical check-in, ID badge distribution, Wi-Fi configuration, and table allocation for verified teams.", place: "Ground Floor Lobby, Academic Block, MUJ", state: "Completed" },
+    { time: "09:30 AM – 10:30 AM", title: "Grand Opening Ceremony & Welcome Address", description: "Keynote addresses by university leadership and industry partners, followed by introduction of the jury and mentors.", place: "Main Auditorium, MUJ", state: "Completed" },
+    { time: "10:30 AM", title: "Problem Statements Released & 36-Hour Hack Begins", description: "Official challenge briefs unlocked. The 36-hour hackathon timer commences. Teams begin sprint development.", place: "Central Hack Area & Online Portal", state: "Current" },
+    { time: "01:00 PM – 02:30 PM", title: "Lunch & Networking Break", description: "Buffet lunch provided for all registered participants, mentors, and organizing staff.", place: "Food Court / Mess Area", state: "Upcoming" },
+    { time: "04:30 PM – 07:00 PM", title: "Mentorship Round 1 — Feasibility & Architecture Check", description: "Assigned domain mentors visit team stations to review initial system architecture, tech stack feasibility, and challenge alignment.", place: "Team Workstations", state: "Upcoming" },
+    { time: "08:30 PM – 10:00 PM", title: "Dinner & Refreshments", description: "Dinner service. Midnight caffeine stations open throughout the night.", place: "Food Court / Mess Area", state: "Upcoming" },
+    { time: "11:30 PM – Midnight", title: "Midnight Progress Check-in & Snack Surge", description: "Quick status ping by the organizing committee. Energy snacks, Red Bull, and tea/coffee distributed.", place: "Central Hack Area", state: "Upcoming" },
+  ] },
+  { number: "03", title: "16 October — Day 2", subtitle: "Code Freeze & Jury Demos", date: "", items: [
+    { time: "03:00 AM – 05:00 AM", title: "Late Night Coding & Quiet Sprint", description: "Dedicated quiet sprint hours. Chill-out bays and resting zones open.", place: "Central Hack Area", state: "Upcoming" },
+    { time: "07:30 AM – 09:00 AM", title: "Breakfast & Morning Energizer", description: "Breakfast service for all active hackers.", place: "Food Court / Mess Area", state: "Upcoming" },
+    { time: "09:30 AM – 11:30 AM", title: "Mentorship Round 2 — Prototype Polish & Demo Preparation", description: "Mentors conduct dry runs of team pitches, live demos, and UI/UX polish reviews before final code freeze.", place: "Team Workstations", state: "Upcoming" },
+    { time: "12:30 PM SHARP", title: "Hard Code Freeze & Submission Window Closes", description: "Absolute deadline. All GitHub commits, live demo URLs, and project summaries must be finalized in the portal.", place: "Code-e-Manipal Portal", state: "Locked" },
+    { time: "01:30 PM – 04:30 PM", title: "Final Jury Evaluation & Live Demonstrations", description: "Judges grade teams on Innovation, Technical Execution, Demo, and Impact through the judge console.", place: "Evaluation Labs & Auditoriums", state: "Upcoming" },
+    { time: "05:00 PM – 06:30 PM", title: "Valedictory Ceremony & Award Presentation", description: "Announcement of track winners, overall champions, prize distribution, and concluding remarks.", place: "Main Auditorium, MUJ", state: "Upcoming" },
+  ] },
 ];
 
 export const trackPreview: EditorialCard[] = [
@@ -443,13 +488,18 @@ export const faqs = [
 export const routeContent: Record<Exclude<PublicRoute, "/">, EditorialCard> = {
   "/about": {
     eyebrow: "About",
-    title: "A thoughtful place to make the next thing.",
-    description: event.longDescription,
+    title: "A place to turn bold ideas into practical solutions.",
+    description: "Code-e-Manipal 2.0 is LearnIT's second-edition offline coding challenge at Manipal University Jaipur.",
   },
   "/schedule": {
-    eyebrow: "Event journey",
-    title: "The schedule will arrive with the details that matter.",
-    description: "Dates, timings, phases, locations, and live event status are " + TBA.toLowerCase() + ".",
+    eyebrow: "Timeline",
+    title: "Hackathon timeline",
+    description: "The complete chronological schedule for Code-e-Manipal 2.0.",
+  },
+  "/timeline": {
+    eyebrow: "Official 36-hour event schedule",
+    title: "Hackathon timeline",
+    description: "Follow the complete chronological schedule of Code-e-Manipal 2.0, from registration and challenge reveal to mentorship rounds, code freeze, and jury evaluation.",
   },
   "/tracks": {
     eyebrow: "Challenge discovery",
@@ -463,8 +513,8 @@ export const routeContent: Record<Exclude<PublicRoute, "/">, EditorialCard> = {
   },
   "/prizes": {
     eyebrow: "Recognition",
-    title: "Recognition with intent.",
-    description: "Confirmed award categories, benefits, and prize details are " + TBA.toLowerCase() + ".",
+    title: "Recognition for the work that moves things forward.",
+    description: "Published prize values, rewards, and benefits for Code-e-Manipal 2.0.",
   },
   "/judges": {
     eyebrow: "People",
