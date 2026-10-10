@@ -1,0 +1,5 @@
+import { coreTeams } from "@/lib/public-site-data";
+
+function Placeholder({ label }: { label: string }) { return <div className="team-placeholder"><span aria-hidden="true">◆</span><p>{label}</p></div>; }
+
+export function TeamShowcase() { return <div className="team-showcase"><section><p className="eyebrow"><span aria-hidden="true" />Executive</p><h2>Student Convenor 2026–2027</h2><div className="team-convenors"><Placeholder label="Convenor portrait to be announced" /><Placeholder label="Convenor portrait to be announced" /></div></section><section><p className="eyebrow"><span aria-hidden="true" />Executive Panel</p><div className="team-panel"><Placeholder label="Executive profile to be announced" /><Placeholder label="Executive profile to be announced" /><Placeholder label="Executive profile to be announced" /></div></section><section><p className="eyebrow"><span aria-hidden="true" />Core Teams</p><div className="core-team-grid">{coreTeams.map((team) => <article key={team}><Placeholder label="Team photo to be announced" /><h3>{team}</h3></article>)}</div></section></div>; }

@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { notFound, redirect } from "next/navigation";
 
-import { Button } from "@/components/public/button";
 import { HeritageAtmosphere } from "@/components/public/heritage-atmosphere";
 import { JudgeGrid } from "@/components/public/judge-grid";
 import { SectionHeader } from "@/components/public/section-header";
@@ -10,7 +9,8 @@ import { AboutEditorial } from "@/components/public/about-editorial";
 import { OfficialPrizes } from "@/components/public/official-prizes";
 import { OfficialTimeline } from "@/components/public/official-timeline";
 import { FaqSection } from "@/components/public/faq-section";
-import { primaryActions, publicRoutes, routeContent, type PublicRoute } from "@/lib/public-site-data";
+import { TeamShowcase } from "@/components/public/team-showcase";
+import { publicRoutes, routeContent, type PublicRoute } from "@/lib/public-site-data";
 
 type PublicPageProps = {
   params: { slug: string };
@@ -25,6 +25,7 @@ const assetForRoute = {
   prizes: "prizes",
   judges: "judges",
   sponsors: "sponsors",
+  team: "team",
   gallery: "gallery",
   faq: "faq",
   contact: "contact",
@@ -69,13 +70,12 @@ export default function PublicDetailPage({ params }: PublicPageProps) {
           <p className="eyebrow"><span aria-hidden="true" />{content.eyebrow}</p>
           <h1>{content.title}</h1>
           <p>{content.description}</p>
-          <div className="page-intro__actions"><Button href={primaryActions.enter.href}>Enter Console</Button></div>
         </div>
       </section>
 
       <section className={`section section--tight${params.slug === "sponsors" ? " sponsors-section" : ""}`}>
         <div className="page-shell content-placeholder">
-          {params.slug === "about" ? <AboutEditorial /> : params.slug === "prizes" ? <OfficialPrizes /> : params.slug === "timeline" ? <OfficialTimeline /> : params.slug === "faq" ? <FaqSection /> : params.slug === "sponsors" ? (
+          {params.slug === "about" ? <AboutEditorial /> : params.slug === "prizes" ? <OfficialPrizes /> : params.slug === "timeline" ? <OfficialTimeline /> : params.slug === "faq" ? <FaqSection /> : params.slug === "team" ? <TeamShowcase /> : params.slug === "sponsors" ? (
             <>
               <SectionHeader eyebrow="Approved partners" title="Made possible with our partners." description="A considered collection of supporters behind Code-e-Manipal 2.0." />
               <SponsorCloud />

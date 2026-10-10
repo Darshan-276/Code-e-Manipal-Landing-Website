@@ -10,6 +10,7 @@ export type PublicRoute =
   | "/prizes"
   | "/judges"
   | "/sponsors"
+  | "/team"
   | "/gallery"
   | "/faq"
   | "/contact"
@@ -67,17 +68,9 @@ export type TimelineStage = { number: string; title: string; subtitle: string; d
 export const publicNavigation: NavigationItem[] = [
   { label: "Home", href: "/", description: "Opening frame" },
   { label: "About", href: "/about", description: "The Code-e-Manipal story" },
-  { label: "Timeline", href: "/timeline", description: "Event journey" },
-  {
-    label: "Problem Statements",
-    href: "/problem-statements",
-    description: "Challenge discovery",
-  },
-  { label: "Prizes", href: "/prizes", description: "Recognition" },
-  { label: "Judges", href: "/judges", description: "People behind the room" },
   { label: "Sponsors", href: "/sponsors", description: "Partners" },
-  { label: "Gallery", href: "/gallery", description: "Past frames" },
-  { label: "FAQ", href: "/faq", description: "Practical guidance" },
+  { label: "Team", href: "/team", description: "People behind the sprint" },
+  { label: "Gallery", href: "/gallery", description: "Coming soon" },
 ];
 
 export const primaryActions = {
@@ -86,18 +79,18 @@ export const primaryActions = {
 
 export const heritageImages = {
   hero: {
-    light: "/images/heritage/light/01-hawa-mahal-landscape.webp",
-    dark: "/images/heritage/dark/08-pink-city-night.webp",
+    light: "/images/backgrounds/Hawa_Mahal_Day_Scene.jpg",
+    dark: "/images/backgrounds/Hawa_Mahal_Night_Scene.jpg",
     alt: "Jaipur architectural atmosphere",
     focalPoint: "center",
-    available: false,
+    available: true,
   },
   about: {
-    light: "/images/heritage/light/17-in-the-pink-city.webp",
-    dark: "/images/heritage/dark/06-nahargarh-scenic-golden.webp",
+    light: "/images/backgrounds/Jaipur_03-2016_20_City_Palace_complex_ight.jpg",
+    dark: "/images/backgrounds/Jaipur_03-2016_20_City_Palace_complex_ight.jpg",
     alt: "Jaipur city architecture",
     focalPoint: "center",
-    available: false,
+    available: true,
   },
   schedule: {
     light: "/images/heritage/light/10-samrat-yantra.webp",
@@ -128,18 +121,25 @@ export const heritageImages = {
     available: false,
   },
   sponsors: {
-    light: "/images/heritage/light/04-city-palace-exterior.webp",
-    dark: "/images/heritage/dark/09-albert-hall-night.webp",
+    light: "/images/backgrounds/jahal_mahal_lightmode.jpg",
+    dark: "/images/backgrounds/jahal_mahal_nightmode.jpg",
     alt: "Jaipur landmark exterior",
     focalPoint: "center",
-    available: false,
+    available: true,
+  },
+  team: {
+    light: "/images/backgrounds/amber_lightmode.jpg",
+    dark: "/images/backgrounds/amber_nightmode.jpg",
+    alt: "Amer Fort in Jaipur",
+    focalPoint: "center",
+    available: true,
   },
   gallery: {
-    light: "/images/heritage/light/02-patrika-gate.webp",
-    dark: "/images/heritage/dark/07-hawa-mahal-lit-night.webp",
+    light: "/images/backgrounds/alberthall_light.jpg",
+    dark: "/images/backgrounds/alberthall_night.jpg",
     alt: "Jaipur gateway architecture",
     focalPoint: "center",
-    available: false,
+    available: true,
   },
   faq: {
     light: "/images/heritage/light/03-city-palace-courtyard.webp",
@@ -223,6 +223,14 @@ export const aboutHighlights = [
 ];
 
 export const officialTracks = ["AI/ML", "HealthTech", "FinTech / EdTech", "Cybersecurity", "Generative AI & LLMs", "Multi-Agent Systems", "Gaming & Immersive Tech", "Smart City and Infrastructure", "Open Innovation"];
+
+export const currentProof = [
+  { value: "36", label: "Hours" },
+  { value: "300+", label: "On-ground participants" },
+  { value: "₹4,00,000+", label: "Prize pool" },
+];
+
+export const coreTeams = ["Logistics & Operations", "Technical", "Productions", "Sponsors", "Outreach", "Social Media", "Marketing", "Mentorship", "Graphic Design"];
 
 export const officialPrizes = [
   { title: "Winner", amount: "₹50,000", detail: "Cash Prize", kind: "winner" },
@@ -525,6 +533,11 @@ export const routeContent: Record<Exclude<PublicRoute, "/">, EditorialCard> = {
     eyebrow: "Partners",
     title: "A wall of support, built with care.",
     description: "Confirmed partners and sponsorship opportunities are " + TBA.toLowerCase() + ".",
+  },
+  "/team": {
+    eyebrow: "The people behind the sprint",
+    title: "A student-led team, building the room for ideas.",
+    description: "Code-e-Manipal is brought to life by LearnIT's student organizers and core teams.",
   },
   "/gallery": {
     eyebrow: "Gallery",

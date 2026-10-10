@@ -11,7 +11,8 @@ export function PublicFooter() {
       <div className="page-shell public-footer__grid">
         <div className="public-footer__brand">
           <SiteLogo />
-          <p>Modern thinking, crafted with Jaipur in the frame.</p>
+          <h2>Where ideas become impact.</h2>
+          <p>LearnIT × Manipal University Jaipur · A 36-hour engineering sprint rooted in Jaipur.</p>
           <div className="public-footer__actions">
             <Button href={primaryActions.enter.href}>Enter Console</Button>
           </div>
@@ -27,14 +28,14 @@ export function PublicFooter() {
         </div>
 
         <div className="public-footer__details">
-          <p className="eyebrow"><span aria-hidden="true" />Official information</p>
-          <Link href="/contact">Contact organizers</Link>
-          <p>Contact details and official social links are to be announced.</p>
+          <p className="eyebrow"><span aria-hidden="true" />Find us</p>
+          <p>Manipal University Jaipur<br />Dehmi Kalan, Rajasthan</p>
+          <Link href="/contact">Contact the organisers</Link>
         </div>
       </div>
       <div className="page-shell public-footer__bottom">
         <span>Code-e-Manipal 2.0</span>
-        <span>All official event details will be published here.</span>
+        <span>LearnIT · Manipal University Jaipur</span>
       </div>
     </footer>
   );
