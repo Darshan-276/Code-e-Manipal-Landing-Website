@@ -230,7 +230,16 @@ export const currentProof = [
   { value: "₹4,00,000+", label: "Prize pool" },
 ];
 
-export const coreTeams = ["Logistics & Operations", "Technical", "Productions", "Sponsors", "Outreach", "Social Media", "Marketing", "Mentorship", "Graphic Design"];
+export const coreTeams = [
+  "Logistics & Operations Team",
+  "Technical Team",
+  "Productions Team",
+  "Sponsorships & Outreach Team",
+  "Social Media Team",
+  "Marketing Team",
+  "Mentorship Team",
+  "Graphic Design Team",
+] as const;
 
 export const officialPrizes = [
   { title: "Winner", amount: "₹50,000", detail: "Cash Prize", kind: "winner" },
