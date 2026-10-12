@@ -234,6 +234,9 @@ export const officialTracks = ["AI/ML", "HealthTech", "FinTech / EdTech", "Cyber
 // Participant totals and the final prize-pool figure need organizer confirmation.
 export const currentProof = [
   { value: "36", label: "Hours" },
+  { value: "800+", label: "Registered participants" },
+  { value: "₹4L+", label: "Prize pool" },
+  { value: "9", label: "Challenge tracks" },
   { value: "1–6", label: "Members per team" },
   { value: "MUJ", label: "On ground" },
 ];
