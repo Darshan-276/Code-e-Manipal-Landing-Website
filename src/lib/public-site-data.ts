@@ -53,6 +53,12 @@ export type SponsorProfile = {
   name: string;
   image: string;
   alt: string;
+  designation?: string;
+};
+
+export type Track = {
+  name: string;
+  icon: string;
 };
 
 export type JudgeProfile = {
@@ -224,10 +230,24 @@ export const aboutHighlights = [
 
 export const officialTracks = ["AI/ML", "HealthTech", "FinTech / EdTech", "Cybersecurity", "Generative AI & LLMs", "Multi-Agent Systems", "Gaming & Immersive Tech", "Smart City and Infrastructure", "Open Innovation"];
 
+// Only facts that are consistent with the supplied event materials are surfaced here.
+// Participant totals and the final prize-pool figure need organizer confirmation.
 export const currentProof = [
   { value: "36", label: "Hours" },
-  { value: "300+", label: "On-ground participants" },
-  { value: "₹4,00,000+", label: "Prize pool" },
+  { value: "1–6", label: "Members per team" },
+  { value: "MUJ", label: "On ground" },
+];
+
+export const tracks: Track[] = [
+  { name: "AI/ML", icon: "◌" },
+  { name: "HealthTech", icon: "+" },
+  { name: "FinTech / EdTech", icon: "↗" },
+  { name: "Cybersecurity", icon: "◇" },
+  { name: "Generative AI & LLMs", icon: "✦" },
+  { name: "Multi-Agent Systems", icon: "⊕" },
+  { name: "Gaming & Immersive Tech", icon: "◒" },
+  { name: "Smart City and Infrastructure", icon: "⌘" },
+  { name: "Open Innovation", icon: "∞" },
 ];
 
 export const coreTeams = [
@@ -458,7 +478,7 @@ export const people: EditorialCard[] = [
 
 export const sponsorProfiles: SponsorProfile[] = [
   { name: "e-cell", image: "/images/Sponsors/e-cell-cropped.png", alt: "e-cell logo" },
-  { name: "The Hosteller", image: "/images/Sponsors/the-hosteller-cropped.png", alt: "The Hosteller logo" },
+  { name: "The Hosteller", image: "/images/Sponsors/the-hosteller-cropped.png", alt: "The Hosteller logo", designation: "Official Stay Partner" },
   { name: "HackerRank", image: "/images/Sponsors/hackerrank-cropped.png", alt: "HackerRank logo" },
   { name: "VickyBytes", image: "/images/Sponsors/vickybytes-cropped.png", alt: "VickyBytes logo" },
   { name: "Unstop", image: "/images/Sponsors/unstop-cropped.png", alt: "Unstop logo" },
@@ -541,7 +561,7 @@ export const routeContent: Record<Exclude<PublicRoute, "/">, EditorialCard> = {
   "/sponsors": {
     eyebrow: "Partners",
     title: "A wall of support, built with care.",
-    description: "Confirmed partners and sponsorship opportunities are " + TBA.toLowerCase() + ".",
+    description: "A considered collection of confirmed supporters behind Code-e-Manipal 2.0.",
   },
   "/team": {
     eyebrow: "The people behind the sprint",
@@ -551,7 +571,7 @@ export const routeContent: Record<Exclude<PublicRoute, "/">, EditorialCard> = {
   "/gallery": {
     eyebrow: "Gallery",
     title: "A record of the work and the people behind it.",
-    description: "Official gallery content and photo credits are " + TBA.toLowerCase() + ".",
+    description: "Official event photography will appear here with its credits once it is cleared for publication.",
   },
   "/faq": {
     eyebrow: "Practical guidance",

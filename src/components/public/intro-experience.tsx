@@ -22,7 +22,7 @@ export function IntroExperience() {
   useEffect(() => {
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const hasPlayed = window.sessionStorage.getItem(INTRO_HAS_PLAYED) === "true";
-    const delay = reducedMotion || hasPlayed ? 160 : 3050;
+    const delay = reducedMotion || hasPlayed ? 120 : 900;
     const timer = window.setTimeout(complete, delay);
 
     return () => window.clearTimeout(timer);
@@ -31,7 +31,7 @@ export function IntroExperience() {
   if (!visible) return null;
 
   return (
-    <div aria-label="Opening Code-e-Manipal" aria-live="polite" className={`intro-experience${leaving ? " intro-experience--leaving" : ""}`} role="status">
+    <div aria-label="Opening Code-e-Manipal" className={`intro-experience${leaving ? " intro-experience--leaving" : ""}`} role="dialog">
       <div className="intro-experience__linework" aria-hidden="true">
         <span className="intro-experience__arch intro-experience__arch--outer" />
         <span className="intro-experience__arch intro-experience__arch--inner" />
