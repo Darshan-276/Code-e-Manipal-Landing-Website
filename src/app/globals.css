@@ -1275,6 +1275,10 @@ h3 { margin-bottom: 0.7rem; font-size: clamp(1.25rem, 1.8vw, 1.6rem); line-heigh
 .gallery-grid__item:hover, .gallery-grid__item:focus-visible, .gallery-grid__item.is-expanded { flex: 3.6; border-color: var(--brass); }
 .gallery-grid__item img { object-fit: cover; transition: transform 600ms cubic-bezier(.2,.7,.2,1); }
 .gallery-grid__item:hover img, .gallery-grid__item:focus-visible img, .gallery-grid__item.is-expanded img { transform: scale(1.06); }
+.gallery-grid__item--reserved { background: linear-gradient(135deg, color-mix(in srgb, var(--surface-strong) 82%, var(--terracotta)), var(--bg-raised)); }
+.gallery-grid__item--reserved::before, .gallery-grid__item--reserved::after { position: absolute; content: ""; pointer-events: none; }
+.gallery-grid__item--reserved::before { inset: .75rem; border: 1px solid color-mix(in srgb, var(--brass) 65%, transparent); }
+.gallery-grid__item--reserved::after { top: 20%; right: -28%; width: 120%; aspect-ratio: 1; border: 1px solid var(--line-strong); border-radius: 50%; }
 .gallery-grid__veil { position: absolute; inset: 0; background: linear-gradient(180deg, rgb(16 10 7 / .05) 20%, rgb(16 10 7 / .88) 100%); }
 .gallery-grid__copy { position: absolute; right: 1.15rem; bottom: 1.15rem; left: 1.15rem; display: grid; gap: .45rem; }
 .gallery-grid__copy small { font-size: .66rem; font-weight: 750; letter-spacing: .14em; text-transform: uppercase; }
@@ -1292,6 +1296,7 @@ h3 { margin-bottom: 0.7rem; font-size: clamp(1.25rem, 1.8vw, 1.6rem); line-heigh
 .team-directory-card__portrait::before { width: 9rem; height: 12rem; bottom: -4rem; }
 .team-directory-card__portrait::after { width: 5rem; height: 7rem; bottom: -2rem; border-color: var(--terracotta); }
 .team-directory-card__portrait span { position: relative; z-index: 1; color: var(--brass); font-family: var(--font-display); font-size: 3rem; }
+.team-directory-card--profile .team-directory-card__portrait { aspect-ratio: 4 / 5; height: auto; }
 .team-directory-card > div:last-child { padding: 1rem 1.1rem 1.25rem; }
 .team-directory-card p { margin: 0 0 .45rem; color: var(--terracotta-strong); font-size: .65rem; font-weight: 750; letter-spacing: .12em; text-transform: uppercase; }
 .team-directory-card h3 { margin: 0 0 .45rem; font-family: var(--font-display); font-size: 1.35rem; font-weight: 500; }

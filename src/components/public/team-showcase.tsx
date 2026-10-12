@@ -1,15 +1,15 @@
 import { coreTeams } from "@/lib/public-site-data";
 import { MotionCard } from "./motion-card";
 
-function DirectoryCard({ title, detail, number }: { title: string; detail: string; number: string }) {
-  return <MotionCard className="team-directory-card"><div className="team-directory-card__portrait" aria-hidden="true"><span>{number}</span><i /></div><div><p>{title}</p><h3>Profile image reserved</h3><small>{detail}</small></div></MotionCard>;
+function DirectoryCard({ title, detail, number, profile = false }: { title: string; detail: string; number: string; profile?: boolean }) {
+  return <MotionCard className={`team-directory-card${profile ? " team-directory-card--profile" : ""}`}><div className="team-directory-card__portrait" aria-hidden="true"><span>{number}</span><i /></div><div><p>{title}</p><h3>{profile ? "Individual portrait reserved" : "Department directory"}</h3><small>{detail}</small></div></MotionCard>;
 }
 
 function StudentConvenorSection() {
   return (
     <section className="team-showcase__section" aria-labelledby="student-convenor-heading">
       <h2 className="team-showcase__heading" id="student-convenor-heading">Student Convenor 2026–2027</h2>
-      <div className="team-directory-grid"><DirectoryCard detail="Name and portrait will be inserted after approval." number="01" title="Student convenor" /><DirectoryCard detail="A second leadership profile can be added without changing the layout." number="02" title="Leadership" /></div>
+      <div className="team-directory-grid"><DirectoryCard detail="Name, role, and individual portrait will be inserted after approval." number="01" profile title="Student convenor" /><DirectoryCard detail="A second individual leadership portrait can be added without changing the layout." number="02" profile title="Leadership" /></div>
     </section>
   );
 }
@@ -18,7 +18,7 @@ function ExecutivePanel() {
   return (
     <section className="team-showcase__section" aria-labelledby="executive-panel-heading">
       <h2 className="team-showcase__heading" id="executive-panel-heading">Executive Panel</h2>
-      <div className="team-directory-grid team-directory-grid--three"><DirectoryCard detail="Profile awaiting organizer approval." number="01" title="Executive profile" /><DirectoryCard detail="Profile awaiting organizer approval." number="02" title="Executive profile" /><DirectoryCard detail="Profile awaiting organizer approval." number="03" title="Executive profile" /></div>
+      <div className="team-directory-grid team-directory-grid--three"><DirectoryCard detail="Individual profile awaiting organizer approval." number="03" profile title="Executive profile" /><DirectoryCard detail="Individual profile awaiting organizer approval." number="04" profile title="Executive profile" /><DirectoryCard detail="Individual profile awaiting organizer approval." number="05" profile title="Executive profile" /></div>
     </section>
   );
 }
