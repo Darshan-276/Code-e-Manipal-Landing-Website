@@ -1,6 +1,7 @@
 import { aboutHighlights } from "@/lib/public-site-data";
 import { ArchitecturalRule } from "./architectural-rule";
 import { Button } from "./button";
+import { primaryActions } from "@/lib/public-site-data";
 import { TrackGrid } from "./track-grid";
 
 export function AboutEditorial() {
@@ -14,7 +15,7 @@ export function AboutEditorial() {
       </div>
       <ArchitecturalRule label="LearnIT · MUJ" />
       <div className="about-editorial__tracks"><span>Official tracks</span><TrackGrid compact /></div>
-      <div className="about-editorial__action"><Button href="/enter">Enter Console</Button></div>
+      <div className="about-editorial__action"><Button href={primaryActions.enter.href}>Enter Console</Button></div>
     </div>
   );
 }

@@ -1,16 +1,15 @@
-import type { ReactNode } from "react";
-
 import { coreTeams } from "@/lib/public-site-data";
+import { MotionCard } from "./motion-card";
 
-function RosterNotice({ children }: { children: ReactNode }) {
-  return <p className="team-roster-notice">{children}</p>;
+function DirectoryCard({ title, detail, number }: { title: string; detail: string; number: string }) {
+  return <MotionCard className="team-directory-card"><div className="team-directory-card__portrait" aria-hidden="true"><span>{number}</span><i /></div><div><p>{title}</p><h3>Profile image reserved</h3><small>{detail}</small></div></MotionCard>;
 }
 
 function StudentConvenorSection() {
   return (
     <section className="team-showcase__section" aria-labelledby="student-convenor-heading">
       <h2 className="team-showcase__heading" id="student-convenor-heading">Student Convenor 2026–2027</h2>
-      <RosterNotice>The student convenor roster is being verified by LearnIT before publication.</RosterNotice>
+      <div className="team-directory-grid"><DirectoryCard detail="Name and portrait will be inserted after approval." number="01" title="Student convenor" /><DirectoryCard detail="A second leadership profile can be added without changing the layout." number="02" title="Leadership" /></div>
     </section>
   );
 }
@@ -19,7 +18,7 @@ function ExecutivePanel() {
   return (
     <section className="team-showcase__section" aria-labelledby="executive-panel-heading">
       <h2 className="team-showcase__heading" id="executive-panel-heading">Executive Panel</h2>
-      <RosterNotice>Executive-panel names and roles will be published once the organizers approve the directory.</RosterNotice>
+      <div className="team-directory-grid team-directory-grid--three"><DirectoryCard detail="Profile awaiting organizer approval." number="01" title="Executive profile" /><DirectoryCard detail="Profile awaiting organizer approval." number="02" title="Executive profile" /><DirectoryCard detail="Profile awaiting organizer approval." number="03" title="Executive profile" /></div>
     </section>
   );
 }
@@ -30,7 +29,7 @@ function CoreTeamGroup({ team }: { team: typeof coreTeams[number] }) {
   return (
     <section className="core-team-group" aria-labelledby={headingId}>
       <h3 id={headingId}>{team}</h3>
-      <RosterNotice>Department roster forthcoming.</RosterNotice>
+      <DirectoryCard detail="Add approved members and portraits here." number="+" title={team} />
     </section>
   );
 }

@@ -80,7 +80,7 @@ export const publicNavigation: NavigationItem[] = [
 ];
 
 export const primaryActions = {
-  enter: { label: "Enter Console", href: "/enter" as PublicRoute },
+  enter: { label: "Enter Console", href: "https://code-e-manipal-portal.vercel.app/" },
 };
 
 export const heritageImages = {
@@ -595,4 +595,6 @@ export const routeContent: Record<Exclude<PublicRoute, "/">, EditorialCard> = {
   },
 };
 
-export const publicRoutes = Object.keys(routeContent) as Exclude<PublicRoute, "/">[];
+// Only routes exposed by the public navigation are generated. Operational and
+// legacy detail routes are deliberately not published from this site.
+export const publicRoutes = ["/about", "/sponsors", "/team", "/gallery"] as const;

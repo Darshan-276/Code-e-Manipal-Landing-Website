@@ -1,16 +1,12 @@
 import type { Metadata } from "next";
-import { notFound, redirect } from "next/navigation";
+import { notFound } from "next/navigation";
 
 import { HeritageAtmosphere } from "@/components/public/heritage-atmosphere";
-import { JudgeGrid } from "@/components/public/judge-grid";
 import { SectionHeader } from "@/components/public/section-header";
 import { SponsorCloud } from "@/components/public/sponsor-cloud";
 import { AboutEditorial } from "@/components/public/about-editorial";
-import { OfficialPrizes } from "@/components/public/official-prizes";
-import { OfficialTimeline } from "@/components/public/official-timeline";
-import { FaqSection } from "@/components/public/faq-section";
 import { TeamShowcase } from "@/components/public/team-showcase";
-import { GalleryEmptyState } from "@/components/public/gallery-empty-state";
+import { GalleryGrid } from "@/components/public/gallery-grid";
 import { publicRoutes, routeContent, type PublicRoute } from "@/lib/public-site-data";
 
 type PublicPageProps = {
@@ -19,24 +15,16 @@ type PublicPageProps = {
 
 const assetForRoute = {
   about: "about",
-  schedule: "schedule",
-  timeline: "schedule",
-  tracks: "problemStatements",
-  "problem-statements": "problemStatements",
-  prizes: "prizes",
-  judges: "judges",
   sponsors: "sponsors",
   team: "team",
   gallery: "gallery",
-  faq: "faq",
-  contact: "contact",
-  register: "register",
-  enter: "enter",
 } as const;
+
+const visibleRoutes = new Set(["/about", "/sponsors", "/team", "/gallery"]);
 
 function resolveRoute(slug: string) {
   const route = `/${slug}` as PublicRoute;
-  return route in routeContent ? route as Exclude<PublicRoute, "/"> : null;
+  return visibleRoutes.has(route) && route in routeContent ? route as Exclude<PublicRoute, "/"> : null;
 }
 
 export function generateStaticParams() {
@@ -58,8 +46,6 @@ export function generateMetadata({ params }: PublicPageProps): Metadata {
 export default function PublicDetailPage({ params }: PublicPageProps) {
   const route = resolveRoute(params.slug);
   if (!route) notFound();
-  if (params.slug === "schedule") redirect("/timeline");
-
   const content = routeContent[route];
   const asset = assetForRoute[params.slug as keyof typeof assetForRoute];
 
@@ -76,15 +62,10 @@ export default function PublicDetailPage({ params }: PublicPageProps) {
 
       <section className={`section section--tight${params.slug === "sponsors" ? " sponsors-section" : ""}`}>
         <div className="page-shell content-placeholder">
-          {params.slug === "about" ? <AboutEditorial /> : params.slug === "prizes" ? <OfficialPrizes /> : params.slug === "timeline" ? <OfficialTimeline /> : params.slug === "faq" ? <FaqSection /> : params.slug === "team" ? <TeamShowcase /> : params.slug === "gallery" ? <GalleryEmptyState /> : params.slug === "sponsors" ? (
+          {params.slug === "about" ? <AboutEditorial /> : params.slug === "team" ? <TeamShowcase /> : params.slug === "gallery" ? <GalleryGrid /> : params.slug === "sponsors" ? (
             <>
               <SectionHeader eyebrow="Approved partners" title="Made possible with our partners." description="A considered collection of supporters behind Code-e-Manipal 2.0." />
               <SponsorCloud />
-            </>
-          ) : params.slug === "judges" ? (
-            <>
-              <SectionHeader eyebrow="Jury" title="A considered panel, announced in full soon." description="Judge names, roles, organisations, and photography will appear only after official confirmation." />
-              <JudgeGrid />
             </>
           ) : (
             <>

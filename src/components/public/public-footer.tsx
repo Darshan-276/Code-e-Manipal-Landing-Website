@@ -30,7 +30,7 @@ export function PublicFooter() {
         <div className="public-footer__details">
           <p className="eyebrow"><span aria-hidden="true" />Find us</p>
           <p>Manipal University Jaipur<br />Dehmi Kalan, Rajasthan</p>
-          <Link href="/contact">Contact the organisers</Link>
+          <p>Organiser contact details will be published with the official event update.</p>
         </div>
       </div>
       <div className="page-shell public-footer__bottom">
