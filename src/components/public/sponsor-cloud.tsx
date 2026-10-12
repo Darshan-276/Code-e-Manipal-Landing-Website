@@ -1,6 +1,7 @@
 import Image from "next/image";
 
 import { sponsorProfiles } from "@/lib/public-site-data";
+import { MotionCard } from "./motion-card";
 
 export function SponsorCloud() {
   const featured = sponsorProfiles.find((sponsor) => sponsor.name === "The Hosteller");
@@ -23,12 +24,12 @@ export function SponsorCloud() {
         <p className="sponsor-cloud__label">Sponsors</p>
         <div className="sponsor-cloud__row">
             {sponsors.map((sponsor) => (
-              <article className="sponsor-cloud__item" key={sponsor.name}>
+              <MotionCard className="sponsor-cloud__item" key={sponsor.name}>
                 <div className="sponsor-cloud__stage">
                   <Image alt={sponsor.alt} fill sizes="(max-width: 640px) 70vw, (max-width: 1000px) 38vw, 240px" src={sponsor.image} />
                 </div>
                 <h3>{sponsor.name}</h3>
-              </article>
+              </MotionCard>
             ))}
         </div>
       </div>

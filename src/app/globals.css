@@ -1210,6 +1210,14 @@ h3 { margin-bottom: 0.7rem; font-size: clamp(1.25rem, 1.8vw, 1.6rem); line-heigh
 .scale-stats > div:last-child { border-right: 0; }
 .scale-stats strong { font-family: var(--font-display); font-size: clamp(3rem, 6vw, 6.3rem); font-weight: 500; letter-spacing: -.065em; line-height: .9; }
 .scale-stats span { margin-top: .65rem; color: var(--terracotta-strong); font-size: .85rem; font-weight: 750; letter-spacing: .08em; text-transform: uppercase; }
+.motion-card { --pointer-x: 50%; --pointer-y: 50%; --tilt-x: 0deg; --tilt-y: 0deg; position: relative; isolation: isolate; }
+.motion-card::after { position: absolute; z-index: -1; inset: 0; content: ""; pointer-events: none; background: radial-gradient(16rem circle at var(--pointer-x) var(--pointer-y), color-mix(in srgb, var(--terracotta) 15%, transparent), transparent 58%); opacity: 0; transition: opacity 180ms ease; }
+.motion-card--active::after { opacity: 1; }
+.track-grid-premium .motion-card { transform: perspective(900px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y)); will-change: transform; }
+.scale-stats .metric-card { transition: background-color var(--transition), transform var(--transition); }
+.scale-stats .metric-card:hover { background: var(--surface); transform: translateY(-3px); }
+.sponsor-cloud__item.motion-card { transition: transform var(--transition), border-color var(--transition), background-color var(--transition); }
+.sponsor-cloud__item.motion-card:hover { border-color: var(--terracotta); transform: translateY(-3px); }
 .track-grid-premium { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--line-strong); background: var(--line); gap: 1px; }
 .track-grid-premium article { position: relative; min-height: 13.5rem; padding: 1.5rem; overflow: hidden; background: var(--bg); transition: background-color var(--transition), transform var(--transition); }
 .track-grid-premium article:hover { background: var(--surface); transform: translateY(-3px); }
@@ -1283,6 +1291,7 @@ h3 { margin-bottom: 0.7rem; font-size: clamp(1.25rem, 1.8vw, 1.6rem); line-heigh
   .next-section__inner { grid-template-columns: 1fr; gap: 1.3rem; }
 }
 @media (prefers-reduced-motion: reduce) { .partner-marquee__track { animation: none; } }
+@media (prefers-reduced-motion: reduce) { .motion-card, .track-grid-premium .motion-card, .scale-stats .metric-card:hover, .sponsor-cloud__item.motion-card:hover { transform: none; transition: none; } .motion-card::after { display: none; } }
 
 /* Footer remains a dark heritage anchor in both theme modes. */
 .public-footer { --footer-ink: #e9ddc8; --footer-soft: #c7b8a2; --footer-line: rgba(233,221,200,.18); position: relative; overflow: hidden; background-color: #17110e; background-image: linear-gradient(45deg, rgba(176,138,69,.05) 25%, transparent 25%), linear-gradient(-45deg, rgba(176,138,69,.05) 25%, transparent 25%); background-size: 26px 26px; color: var(--footer-ink); }
