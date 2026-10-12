@@ -3,10 +3,12 @@ import type { ReactNode } from "react";
 import { PublicFooter } from "./public-footer";
 import { PublicHeader } from "./public-header";
 import { IntroExperience } from "./intro-experience";
+import { AmbientAtmosphere } from "./ambient-atmosphere";
 
 export function PublicShell({ children }: { children: ReactNode }) {
   return (
     <div className="public-site">
+      <AmbientAtmosphere />
       <a className="skip-link" href="#main-content">Skip to content</a>
       <IntroExperience />
       <PublicHeader />
