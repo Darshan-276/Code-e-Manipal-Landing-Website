@@ -574,7 +574,7 @@ export const routeContent: Record<Exclude<PublicRoute, "/">, EditorialCard> = {
   "/gallery": {
     eyebrow: "Gallery",
     title: "A record of the work and the people behind it.",
-    description: "Official event photography will appear here with its credits once it is cleared for publication.",
+    description: "Twenty-two frames from Code-e-Manipal, from the stage and the workshop to the conversations that carried the event forward.",
   },
   "/faq": {
     eyebrow: "Practical guidance",

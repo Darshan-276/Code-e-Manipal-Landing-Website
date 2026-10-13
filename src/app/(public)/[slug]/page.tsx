@@ -7,6 +7,7 @@ import { SponsorCloud } from "@/components/public/sponsor-cloud";
 import { AboutEditorial } from "@/components/public/about-editorial";
 import { TeamShowcase } from "@/components/public/team-showcase";
 import { GalleryGrid } from "@/components/public/gallery-grid";
+import galleryStyles from "@/components/public/gallery-grid.module.css";
 import { publicRoutes, routeContent, type PublicRoute } from "@/lib/public-site-data";
 
 type PublicPageProps = {
@@ -51,7 +52,7 @@ export default function PublicDetailPage({ params }: PublicPageProps) {
 
   return (
     <>
-      <section className={`page-intro${params.slug === "sponsors" ? " page-intro--sponsors" : ""}`}>
+      <section className={`page-intro${params.slug === "sponsors" ? " page-intro--sponsors" : ""}${params.slug === "gallery" ? ` ${galleryStyles.pageIntro}` : ""}`}>
         <HeritageAtmosphere asset={asset} />
         <div className="page-shell page-intro__content">
           <p className="eyebrow"><span aria-hidden="true" />{content.eyebrow}</p>
