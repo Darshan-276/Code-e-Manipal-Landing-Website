@@ -230,15 +230,11 @@ export const aboutHighlights = [
 
 export const officialTracks = ["AI/ML", "HealthTech", "FinTech / EdTech", "Cybersecurity", "Generative AI & LLMs", "Multi-Agent Systems", "Gaming & Immersive Tech", "Smart City and Infrastructure", "Open Innovation"];
 
-// Only facts that are consistent with the supplied event materials are surfaced here.
-// Participant totals and the final prize-pool figure need organizer confirmation.
+// Current public event facts, kept in one place so every public-facing reference stays aligned.
 export const currentProof = [
   { value: "36", label: "Hours" },
-  { value: "800+", label: "Registered participants" },
-  { value: "₹4L+", label: "Prize pool" },
-  { value: "9", label: "Challenge tracks" },
-  { value: "1–6", label: "Members per team" },
-  { value: "MUJ", label: "On ground" },
+  { value: "300+", label: "On-ground participants" },
+  { value: "₹4,00,000+", label: "Prize pool" },
 ];
 
 export const tracks: Track[] = [
@@ -564,7 +560,7 @@ export const routeContent: Record<Exclude<PublicRoute, "/">, EditorialCard> = {
   "/sponsors": {
     eyebrow: "Partners",
     title: "A wall of support, built with care.",
-    description: "A considered collection of confirmed supporters behind Code-e-Manipal 2.0.",
+    description: "Meet the partners supporting Code-e-Manipal 2.0.",
   },
   "/team": {
     eyebrow: "The people behind the sprint",
@@ -572,9 +568,9 @@ export const routeContent: Record<Exclude<PublicRoute, "/">, EditorialCard> = {
     description: "Code-e-Manipal is brought to life by LearnIT's student organizers and core teams.",
   },
   "/gallery": {
-    eyebrow: "Gallery",
-    title: "A record of the work and the people behind it.",
-    description: "Twenty-two frames from Code-e-Manipal, from the stage and the workshop to the conversations that carried the event forward.",
+    eyebrow: "Code-e-Manipal 1.0",
+    title: "A look back at Code-e-Manipal 1.0",
+    description: "From ideas shared on stage to teams building side by side, these are a few moments that made our first edition.",
   },
   "/faq": {
     eyebrow: "Practical guidance",

@@ -381,15 +381,7 @@ export function GalleryGrid() {
   }, [activeIndex]);
 
   return (
-    <section aria-labelledby="gallery-collection-title" className={styles.gallery}>
-      <header className={styles.intro}>
-        <p className="eyebrow"><span aria-hidden="true" />Event archive</p>
-        <div>
-          <h2 id="gallery-collection-title">Twenty-two frames of the room in motion.</h2>
-          <p>From the first words on stage to the focused work between sessions, this is a record of the people, ideas and momentum of Code-e-Manipal.</p>
-        </div>
-      </header>
-
+    <section aria-label="Code-e-Manipal 1.0 event gallery" className={styles.gallery}>
       <div className={styles.collection}>
         {galleryEntries.map((entry, index) => (
           <Reveal className={`${styles.cardReveal} ${styles[entry.layout]} ${styles[entry.format]}`} delay={(index % 5) * 55} key={entry.id}>
