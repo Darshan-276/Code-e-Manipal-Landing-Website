@@ -3,12 +3,13 @@ import Link from "next/link";
 import { primaryActions, publicNavigation } from "@/lib/public-site-data";
 import { Button } from "./button";
 import { SiteLogo } from "./site-logo";
+import { Reveal } from "./reveal";
 
 export function PublicFooter() {
   return (
     <footer className="public-footer">
       <div className="public-footer__line" aria-hidden="true"><span /><i /><span /></div>
-      <div className="page-shell public-footer__grid">
+      <Reveal className="page-shell public-footer__grid">
         <div className="public-footer__brand">
           <SiteLogo />
           <h2>Where ideas become impact.</h2>
@@ -32,7 +33,7 @@ export function PublicFooter() {
           <p>Manipal University Jaipur<br />Dehmi Kalan, Rajasthan</p>
           <p>Organiser contact details will be published with the official event update.</p>
         </div>
-      </div>
+      </Reveal>
       <div className="page-shell public-footer__bottom">
         <span>Code-e-Manipal 2.0</span>
         <span>LearnIT · Manipal University Jaipur</span>

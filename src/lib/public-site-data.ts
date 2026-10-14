@@ -231,8 +231,8 @@ export const officialTracks = ["AI/ML", "HealthTech", "FinTech / EdTech", "Cyber
 // Current public event facts, kept in one place so every public-facing reference stays aligned.
 export const currentProof = [
   { value: "36", label: "Hours" },
-  { value: "300+", label: "On-ground participants" },
-  { value: "₹4,00,000+", label: "Prize pool" },
+  { value: "300+", label: "On-ground Participants" },
+  { value: "₹4,00,000+", label: "Prize Pool" },
 ];
 
 export const tracks: Track[] = [

@@ -24,7 +24,7 @@ export function SponsorCloud() {
       {featured && (
         <Reveal className="featured-partner__reveal" variant="image">
           <section className="featured-partner">
-            <p>Official stay partner</p>
+            <p>Official Stay Partner</p>
             <div className="featured-partner__stage">
               <Image alt={featured.alt} fill sizes="420px" src={featured.image} />
             </div>

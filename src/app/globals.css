@@ -1247,9 +1247,16 @@ h3 { margin-bottom: 0.7rem; font-size: clamp(1.25rem, 1.8vw, 1.6rem); line-heigh
 .brand-hero__reveal--one { animation-delay: 70ms; }
 .brand-hero__reveal--two { width: 100%; display: flex; justify-content: center; animation-delay: 130ms; }
 .brand-hero__reveal--three { animation-delay: 190ms; }
-.brand-hero__reveal--four { animation-delay: 260ms; }
+.brand-hero__reveal--four {
+  animation: brand-hero-blur-text 660ms cubic-bezier(.2, .7, .2, 1) forwards;
+  animation-delay: 260ms;
+}
 .brand-hero__reveal--five { animation-delay: 330ms; }
 @keyframes brand-hero-enter { from { opacity: 0; transform: translateY(1rem); } to { opacity: 1; transform: translateY(0); } }
+@keyframes brand-hero-blur-text {
+  from { opacity: 0; filter: blur(7px); transform: translateY(1.2rem); }
+  to { opacity: 1; filter: blur(0); transform: translateY(0); }
+}
 .partner-marquee { overflow: hidden; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--bg-raised); }
 .partner-marquee__track { display: flex; width: max-content; animation: partner-marquee 34s linear infinite; }
 .partner-marquee__group { display: flex; flex: 0 0 auto; }
@@ -1864,6 +1871,9 @@ h3 { margin-bottom: 0.7rem; font-size: clamp(1.25rem, 1.8vw, 1.6rem); line-heigh
 
 /* ── Reduced-motion overrides for all new additions ─────────── */
 @media (prefers-reduced-motion: reduce) {
+  .brand-hero__reveal,
+  .brand-hero__reveal--four,
+  .page-intro .heritage-atmosphere img,
   .track-grid-premium article,
   .track-grid-premium article::before,
   .track-grid-premium article::after,
@@ -1873,8 +1883,11 @@ h3 { margin-bottom: 0.7rem; font-size: clamp(1.25rem, 1.8vw, 1.6rem); line-heigh
   .about-editorial__facts article,
   .sponsor-cloud__item.motion-card,
   .featured-partner {
-    transition: none;
+    animation: none;
+    filter: none;
+    opacity: 1;
     transform: none;
+    transition: none;
   }
   .partner-marquee__track { animation-play-state: running; }
 }
