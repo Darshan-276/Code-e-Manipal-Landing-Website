@@ -36,7 +36,7 @@ export function PublicHeader() {
   return (
     <header className={`public-header${hasScrolled ? " public-header--scrolled" : ""}`}>
       <div className="public-header__inner page-shell">
-        <SiteLogo compact />
+        <SiteLogo compact priority />
 
         <nav aria-label="Primary navigation" className="public-header__nav">
           {publicNavigation.map((item) => (

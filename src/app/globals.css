@@ -773,6 +773,7 @@ h3 { margin-bottom: 0.7rem; font-size: clamp(1.25rem, 1.8vw, 1.6rem); line-heigh
 .theme-toggle { width: 2.7rem; height: 2.7rem; }
 .public-header--scrolled { padding-top: 1rem; }
 .public-header--scrolled .public-header__inner { min-height: 4.35rem; padding-inline: 1.1rem; }
+.public-header--scrolled .site-logo { width: 9.25rem; }
 
 .hero--opening {
   min-height: max(50rem, 100svh);
@@ -1244,7 +1245,7 @@ h3 { margin-bottom: 0.7rem; font-size: clamp(1.25rem, 1.8vw, 1.6rem); line-heigh
 .brand-hero__content > p:last-child { max-width: 38rem; margin: 0; color: var(--text-soft); font-size: clamp(1.05rem, 1.6vw, 1.3rem); }
 .brand-hero__reveal { opacity: 0; animation: brand-hero-enter 560ms cubic-bezier(.2, .7, .2, 1) forwards; }
 .brand-hero__reveal--one { animation-delay: 70ms; }
-.brand-hero__reveal--two { animation-delay: 130ms; }
+.brand-hero__reveal--two { width: 100%; display: flex; justify-content: center; animation-delay: 130ms; }
 .brand-hero__reveal--three { animation-delay: 190ms; }
 .brand-hero__reveal--four { animation-delay: 260ms; }
 .brand-hero__reveal--five { animation-delay: 330ms; }
