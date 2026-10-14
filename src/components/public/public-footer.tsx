@@ -8,7 +8,6 @@ import { Reveal } from "./reveal";
 export function PublicFooter() {
   return (
     <footer className="public-footer">
-      <div className="public-footer__line" aria-hidden="true"><span /><i /><span /></div>
       <Reveal className="page-shell public-footer__grid">
         <div className="public-footer__brand">
           <SiteLogo />

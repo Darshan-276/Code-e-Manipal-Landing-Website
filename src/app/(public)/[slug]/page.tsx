@@ -35,9 +35,17 @@ export function generateMetadata({ params }: PublicPageProps): Metadata {
   const content = routeContent[route];
 
   return {
-    title: content.title,
+    title: "Code-e-Manipal 2.0",
     description: content.description,
     alternates: { canonical: route },
+    openGraph: {
+      title: "Code-e-Manipal 2.0",
+      description: content.description,
+    },
+    twitter: {
+      title: "Code-e-Manipal 2.0",
+      description: content.description,
+    },
   };
 }
 

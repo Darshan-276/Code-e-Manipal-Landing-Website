@@ -16,10 +16,7 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"),
-  title: {
-    default: "Code-e-Manipal 2.0",
-    template: "%s | Code-e-Manipal 2.0",
-  },
+  title: "Code-e-Manipal 2.0",
   description: "The public home for Code-e-Manipal 2.0.",
   applicationName: "Code-e-Manipal 2.0",
   robots: {
