@@ -10,7 +10,6 @@ export type PublicRoute =
   | "/prizes"
   | "/judges"
   | "/sponsors"
-  | "/team"
   | "/gallery"
   | "/faq"
   | "/contact"
@@ -75,8 +74,7 @@ export const publicNavigation: NavigationItem[] = [
   { label: "Home", href: "/", description: "Opening frame" },
   { label: "About", href: "/about", description: "The Code-e-Manipal story" },
   { label: "Sponsors", href: "/sponsors", description: "Partners" },
-  { label: "Team", href: "/team", description: "People behind the sprint" },
-  { label: "Gallery", href: "/gallery", description: "Coming soon" },
+  { label: "Gallery", href: "/gallery", description: "Event moments" },
 ];
 
 export const primaryActions = {
@@ -562,11 +560,6 @@ export const routeContent: Record<Exclude<PublicRoute, "/">, EditorialCard> = {
     title: "A wall of support, built with care.",
     description: "Meet the partners supporting Code-e-Manipal 2.0.",
   },
-  "/team": {
-    eyebrow: "The people behind the sprint",
-    title: "A student-led team, building the room for ideas.",
-    description: "Code-e-Manipal is brought to life by LearnIT's student organizers and core teams.",
-  },
   "/gallery": {
     eyebrow: "Code-e-Manipal 1.0",
     title: "A look back at Code-e-Manipal 1.0",
@@ -596,4 +589,4 @@ export const routeContent: Record<Exclude<PublicRoute, "/">, EditorialCard> = {
 
 // Only routes exposed by the public navigation are generated. Operational and
 // legacy detail routes are deliberately not published from this site.
-export const publicRoutes = ["/about", "/sponsors", "/team", "/gallery"] as const;
+export const publicRoutes = ["/about", "/sponsors", "/gallery"] as const;
